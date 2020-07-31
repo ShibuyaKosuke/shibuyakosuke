@@ -7,20 +7,65 @@
         "laravel"
     ],
     "license": "MIT",
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../../plugins/laravel-adminlte-command",
+            "symlink": true
+        },
+        {
+            "type": "path",
+            "url": "../../plugins/laravel-make-command",
+            "symlink": true
+        },
+        {
+            "type": "path",
+            "url": "../../plugins/laravel-bootstrap4",
+            "symlink": true
+        },
+        {
+            "type": "path",
+            "url": "../../plugins/laravel-database-validation",
+            "symlink": true
+        },
+        {
+            "type": "path",
+            "url": "../../plugins/laravel-database-utilities",
+            "symlink": true
+        },
+        {
+            "type": "path",
+            "url": "../../plugins/laravel-database-spreadsheet",
+            "symlink": true
+        },
+        {
+            "type": "path",
+            "url": "../../plugins/laravel-model-replacement",
+            "symlink": true
+        },
+        {
+            "type": "path",
+            "url": "../../plugins/laravel-crud-breadcrumbs",
+            "symlink": true
+        }
+    ],
     "require": {
         "php": "^7.2.5",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "^7.22.2",
-        "laravel/tinker": "^2.0"
+        "laravel/tinker": "^2.0",
+        "laravel/ui": "^2.1",
+        "shibuyakosuke/laravel-make-command": "dev-master"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
         "fzaninotto/faker": "^1.9.1",
         "mockery/mockery": "^1.3.1",
         "nunomaduro/collision": "^4.1",
-        "phpunit/phpunit": "^8.5"
+        "phpunit/phpunit": "^8.5",
+        "shibuyakosuke/laravel-language-setting": "^1.1"
     },
     "config": {
         "optimize-autoloader": true,
