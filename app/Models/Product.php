@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use function request;
 
@@ -40,20 +41,21 @@ class Product extends Model
 
     /**
      * @param Builder $query
+     * @param Request $request
      * @return Builder
      */
-    public function scopeSearch($query)
+    public function scopeSearch($query, Request $request)
     {
-        return $query->when(request('author_id'), function (Builder $query) {
-            $query->where('author_id', '=', request('author_id'));
-        })->when(request('name'), function (Builder $query) {
-            $query->where('name', 'like', '%' . request('name') . '%');
-        })->when(request('repository_url'), function (Builder $query) {
-            $query->where('repository_url', 'like', '%' . request('repository_url') . '%');
-        })->when(request('sort') && request('order'), function (Builder $query) {
-            $query->orderBy(request('sort'), request('order'))
-                ->when(request('sort') !== 'id', function (Builder $query) {
-                    $query->orderBy('id', 'asc');
+        return $query->when($request->has('author_id'), function (Builder $query) use ($request) {
+            $query->where('author_id', '=', $request->get('author_id'));
+        })->when($request->has('name'), function (Builder $query) use ($request) {
+            $query->where('name', 'like', '%' . $request->get('name') . '%');
+        })->when($request->has('repository_url'), function (Builder $query) use ($request) {
+            $query->where('repository_url', 'like', '%' . $request->get('repository_url') . '%');
+        })->when($request->has('sort') && $request->has('order'), function (Builder $query) use ($request) {
+            $query->orderBy($request->get('sort'), $request->get('order'))
+                ->when($request->get('sort') !== $this->primaryKey, function (Builder $query) {
+                    $query->orderBy($this->primaryKey, 'asc');
                 });
         });
     }

@@ -6,6 +6,7 @@ use App\Http\Requests\ProductFormRequest;
 use App\Models\Product;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 /**
@@ -15,10 +16,17 @@ use Illuminate\View\View;
 class ProductController extends Controller
 {
     /**
-     * CompanyController constructor.
+     * @var Request
      */
-    public function __construct()
+    private $request;
+
+    /**
+     * CompanyController constructor.
+     * @param Request $request
+     */
+    public function __construct(Request $request)
     {
+        $this->request = $request;
         $this->authorizeResource(Product::class);
     }
 
@@ -27,7 +35,7 @@ class ProductController extends Controller
      */
     public function getModels(): Builder
     {
-        return Product::with(['author'])->search();
+        return Product::with(['author'])->search($this->request);
     }
 
     /**

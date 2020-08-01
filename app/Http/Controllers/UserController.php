@@ -6,6 +6,7 @@ use App\Http\Requests\UserFormRequest;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 /**
@@ -15,10 +16,17 @@ use Illuminate\View\View;
 class UserController extends Controller
 {
     /**
-     * CompanyController constructor.
+     * @var Request
      */
-    public function __construct()
+    private $request;
+
+    /**
+     * CompanyController constructor.
+     * @param Request $request
+     */
+    public function __construct(Request $request)
     {
+        $this->request = $request;
         $this->authorizeResource(User::class);
     }
 
@@ -27,7 +35,7 @@ class UserController extends Controller
      */
     public function getModels(): Builder
     {
-        return User::search();
+        return User::search($this->request);
     }
 
     /**

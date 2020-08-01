@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
 use function request;
@@ -52,26 +53,27 @@ class User extends Authenticatable
 
     /**
      * @param Builder $query
+     * @param Request $request
      * @return Builder
      */
-    public function scopeSearch($query)
+    public function scopeSearch($query, Request $request)
     {
-        return $query->when(request('name'), function (Builder $query) {
-            $query->where('name', 'like', '%' . request('name') . '%');
-        })->when(request('github_account'), function (Builder $query) {
-            $query->where('github_account', 'like', '%' . request('github_account') . '%');
-        })->when(request('email'), function (Builder $query) {
-            $query->where('email', 'like', '%' . request('email') . '%');
-        })->when(request('email_verified_at'), function (Builder $query) {
-            $query->whereDate('email_verified_at', request('email_verified_at'));
-        })->when(request('password'), function (Builder $query) {
-            $query->where('password', 'like', '%' . request('password') . '%');
-        })->when(request('remember_token'), function (Builder $query) {
-            $query->where('remember_token', 'like', '%' . request('remember_token') . '%');
-        })->when(request('sort') && request('order'), function (Builder $query) {
-            $query->orderBy(request('sort'), request('order'))
-                ->when(request('sort') !== 'id', function (Builder $query) {
-                    $query->orderBy('id', 'asc');
+        return $query->when($request->has('name'), function (Builder $query) use ($request) {
+            $query->where('name', 'like', '%' . $request->get('name') . '%');
+        })->when($request->has('github_account'), function (Builder $query) use ($request) {
+            $query->where('github_account', 'like', '%' . $request->get('github_account') . '%');
+        })->when($request->has('email'), function (Builder $query) use ($request) {
+            $query->where('email', 'like', '%' . $request->get('email') . '%');
+        })->when($request->has('email_verified_at'), function (Builder $query) use ($request) {
+            $query->whereDate('email_verified_at', $request->get('email_verified_at'));
+        })->when($request->has('password'), function (Builder $query) use ($request) {
+            $query->where('password', 'like', '%' . $request->get('password') . '%');
+        })->when($request->has('remember_token'), function (Builder $query) use ($request) {
+            $query->where('remember_token', 'like', '%' . $request->get('remember_token') . '%');
+        })->when($request->has('sort') && $request->has('order'), function (Builder $query) use ($request) {
+            $query->orderBy($request->get('sort'), $request->get('order'))
+                ->when($request->get('sort') !== $this->primaryKey, function (Builder $query) {
+                    $query->orderBy($this->primaryKey, 'asc');
                 });
         });
     }

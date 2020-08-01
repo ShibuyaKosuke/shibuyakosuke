@@ -3,16 +3,27 @@
 namespace App\Http\ViewComposers;
 
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\Request;
 
 class UserComposer
 {
-    public function __construct()
+    /**
+     * Request
+     */
+    private $request;
+
+    /**
+     * UserComposer constructor.
+     * @param Request $request
+     */
+    public function __construct(Request $request)
     {
+        $this->request = $request;
     }
 
     public function compose(View $view)
     {
-        $params = App('request')->query();
+        $params = $this->request->query();
         $view->with(compact('params'));
     }
 }
