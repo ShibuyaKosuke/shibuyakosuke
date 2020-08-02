@@ -34,8 +34,8 @@ class Product extends Model
     protected $perPage = 15;
 
     protected $fillable = [
-        'author_id', 
-        'name', 
+        'author_id',
+        'name',
         'repository_url'
     ];
 
@@ -67,5 +67,13 @@ class Product extends Model
     public function author(): BelongsTo
     {
         return $this->belongsTo(User::class, 'author_id');
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function dependencies(): HasMany
+    {
+        return $this->hasMany(Product::class, 'id', 'depending_id');
     }
 }
