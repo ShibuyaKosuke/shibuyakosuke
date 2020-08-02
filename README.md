@@ -26,5 +26,5 @@
 
 ### laravel-make-command
 
-## laravel-model-replacement
+### laravel-model-replacement
 
