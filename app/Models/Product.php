@@ -70,10 +70,10 @@ class Product extends Model
     }
 
     /**
-     * @return HasMany
+     * @return BelongsToMany
      */
-    public function dependencies(): HasMany
+    public function dependencies(): BelongsToMany
     {
-        return $this->hasMany(Product::class, 'id', 'depending_id');
+        return $this->belongsToMany(Product::class, 'dependencies', 'depending_id', 'depended_id');
     }
 }
