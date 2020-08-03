@@ -7,11 +7,9 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
-use function request;
 
 /**
  * Product プロダクト
@@ -44,7 +42,7 @@ class Product extends Model
      * @param Request $request
      * @return Builder
      */
-    public function scopeSearch($query, Request $request)
+    public function scopeSearch($query, Request $request): Builder
     {
         return $query->when($request->has('author_id'), function (Builder $query) use ($request) {
             $query->where('author_id', '=', $request->get('author_id'));
