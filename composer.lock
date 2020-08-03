@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ca5e9e2a1a4f476189dfb35d60c151b2",
+    "content-hash": "391ce8eb6845d2617d2f7537b5d2c4e0",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3156,6 +3156,46 @@
                 }
             ],
             "description": "Validation rules generator",
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "shibuyakosuke/laravel-dompdf-font",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../../plugins/laravel-dompdf-font",
+                "reference": "ae2fc4fc6c2d3c6fc3461aa181d6957bceafc3a6"
+            },
+            "require": {
+                "barryvdh/laravel-dompdf": "^0.8.6",
+                "ext-zip": "*",
+                "guzzlehttp/guzzle": "^6.5|^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "ShibuyaKosuke\\LaravelDompdfFont\\Providers\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ShibuyaKosuke\\LaravelDompdfFont\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "KosukeShibuya",
+                    "email": "shibuya@imagenious.co.jp"
+                }
+            ],
+            "description": "install command for dompdf-font.",
             "transport-options": {
                 "relative": true
             }
@@ -7859,6 +7899,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "shibuyakosuke/laravel-dompdf-font": 20,
         "shibuyakosuke/laravel-make-command": 20
     },
     "prefer-stable": true,
