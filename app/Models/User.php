@@ -27,6 +27,7 @@ use function request;
  * @property Carbon updated_at 作成日時
  * @property Carbon deleted_at 削除日時
  * @property Product[] products プロダクト
+ * @property LinkedSocialAccount[] account ソーシャルログイン
  * @method search
  */
 class User extends Authenticatable
@@ -39,11 +40,11 @@ class User extends Authenticatable
     protected $perPage = 15;
 
     protected $fillable = [
-        'name', 
-        'github_account', 
-        'email', 
-        'email_verified_at', 
-        'password', 
+        'name',
+        'github_account',
+        'email',
+        'email_verified_at',
+        'password',
         'remember_token'
     ];
 
@@ -85,5 +86,14 @@ class User extends Authenticatable
     public function products(): HasMany
     {
         return $this->hasMany(Product::class);
+    }
+
+    /**
+     * ソーシャルログイン
+     * @return HasMany
+     */
+    public function accounts(): HasMany
+    {
+        return $this->hasMany(LinkedSocialAccount::class);
     }
 }

@@ -50,20 +50,23 @@
         },
         {
             "type": "path",
-            "url": "../../plugins/laravel-dompdf-font",
+            "url": "../../plugins/laravel-pdf-font",
             "symlink": true
         }
     ],
     "require": {
         "php": "^7.2.5",
+        "barryvdh/laravel-debugbar": "^3.3",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "^7.22.2",
+        "laravel/socialite": "^4.4",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.1",
-        "shibuyakosuke/laravel-dompdf-font": "dev-master",
-        "shibuyakosuke/laravel-make-command": "dev-master"
+        "shibuyakosuke/laravel-crud-breadcrumbs": "dev-master",
+        "shibuyakosuke/laravel-make-command": "dev-master",
+        "shibuyakosuke/laravel-pdf-font": "dev-master"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

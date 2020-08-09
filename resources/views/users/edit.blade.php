@@ -2,6 +2,9 @@
 
 @section('content')
     <div class="container-fluid">
+
+        {{ Breadcrumbs::render() }}
+
         {{ BootForm::open(['method' => 'put', 'url' => route('users.update', compact('user'))]) }}
         <div class="card">
             <div class="card-header">

@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use App\Services\SocialAccountService;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Laravel\Socialite\Facades\Socialite;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class LoginController extends Controller
 {
@@ -36,5 +39,41 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    /**
+     * GitHubの認証ページヘユーザーをリダイレクト
+     *
+     * @param string $provider
+     * @return RedirectResponse
+     */
+    public function redirectToProvider(string $provider): RedirectResponse
+    {
+        return Socialite::driver($provider)->redirect();
+    }
+
+    /**
+     * GitHubからユーザー情報を取得
+     *
+     * @param SocialAccountService $accountService
+     * @param $provider
+     * @return \Illuminate\Http\Response
+     */
+    public function handleProviderCallback(SocialAccountService $accountService, $provider)
+    {
+        try {
+            $user = Socialite::with($provider)->user();
+        } catch (\Exception $e) {
+            return redirect('/login');
+        }
+
+        $authUser = $accountService->findOrCreate(
+            $user,
+            $provider
+        );
+
+        auth()->login($authUser, true);
+
+        return redirect()->to('/home');
     }
 }

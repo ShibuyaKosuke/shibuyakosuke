@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container-fluid">
+    <div class="container">
 
         @if (Session::has('success_message'))
             <div class="alert alert-success">

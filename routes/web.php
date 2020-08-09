@@ -15,10 +15,20 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
+
+Route::get('/documentation', function () {
+    return view('documentation');
+})->name('documentation');
+
+Route::get('/plugins', 'PluginController@index')->name('plugins.index');
+
+Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider');
+Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
+
 Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('users', 'UserController');
 Route::resource('products', 'ProductController');
-
-Route::get('/home', 'HomeController@index')->name('home');

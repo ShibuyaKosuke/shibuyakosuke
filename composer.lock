@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "391ce8eb6845d2617d2f7537b5d2c4e0",
+    "content-hash": "75e9bb1994530ea76aec8063fecc98a0",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -57,6 +57,80 @@
                 "stack"
             ],
             "time": "2020-05-31T07:17:05+00:00"
+        },
+        {
+            "name": "barryvdh/laravel-debugbar",
+            "version": "v3.3.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/barryvdh/laravel-debugbar.git",
+                "reference": "57f2219f6d9efe41ed1bc880d86701c52f261bf5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/57f2219f6d9efe41ed1bc880d86701c52f261bf5",
+                "reference": "57f2219f6d9efe41ed1bc880d86701c52f261bf5",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/routing": "^5.5|^6|^7",
+                "illuminate/session": "^5.5|^6|^7",
+                "illuminate/support": "^5.5|^6|^7",
+                "maximebf/debugbar": "^1.15.1",
+                "php": ">=7.0",
+                "symfony/debug": "^3|^4|^5",
+                "symfony/finder": "^3|^4|^5"
+            },
+            "require-dev": {
+                "laravel/framework": "5.5.x"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.2-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Barryvdh\\Debugbar\\ServiceProvider"
+                    ],
+                    "aliases": {
+                        "Debugbar": "Barryvdh\\Debugbar\\Facade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Barryvdh\\Debugbar\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Barry vd. Heuvel",
+                    "email": "barryvdh@gmail.com"
+                }
+            ],
+            "description": "PHP Debugbar integration for Laravel",
+            "keywords": [
+                "debug",
+                "debugbar",
+                "laravel",
+                "profiler",
+                "webprofiler"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/barryvdh",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-05-05T10:53:32+00:00"
         },
         {
             "name": "barryvdh/laravel-dompdf",
@@ -1068,6 +1142,71 @@
             "time": "2020-07-27T18:25:06+00:00"
         },
         {
+            "name": "laravel/socialite",
+            "version": "v4.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/socialite.git",
+                "reference": "80951df0d93435b773aa00efe1fad6d5015fac75"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/socialite/zipball/80951df0d93435b773aa00efe1fad6d5015fac75",
+                "reference": "80951df0d93435b773aa00efe1fad6d5015fac75",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "guzzlehttp/guzzle": "^6.0|^7.0",
+                "illuminate/http": "~5.7.0|~5.8.0|^6.0|^7.0",
+                "illuminate/support": "~5.7.0|~5.8.0|^6.0|^7.0",
+                "league/oauth1-client": "^1.0",
+                "php": "^7.1.3"
+            },
+            "require-dev": {
+                "illuminate/contracts": "~5.7.0|~5.8.0|^6.0|^7.0",
+                "mockery/mockery": "^1.0",
+                "orchestra/testbench": "^3.7|^3.8|^4.0|^5.0",
+                "phpunit/phpunit": "^7.0|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Laravel\\Socialite\\SocialiteServiceProvider"
+                    ],
+                    "aliases": {
+                        "Socialite": "Laravel\\Socialite\\Facades\\Socialite"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Socialite\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "Laravel wrapper around OAuth 1 & OAuth 2 libraries.",
+            "homepage": "https://laravel.com",
+            "keywords": [
+                "laravel",
+                "oauth"
+            ],
+            "time": "2020-06-03T13:30:03+00:00"
+        },
+        {
             "name": "laravel/tinker",
             "version": "v2.4.1",
             "source": {
@@ -1440,6 +1579,69 @@
             "time": "2020-07-26T07:20:36+00:00"
         },
         {
+            "name": "league/oauth1-client",
+            "version": "1.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/oauth1-client.git",
+                "reference": "fca5f160650cb74d23fc11aa570dd61f86dcf647"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/oauth1-client/zipball/fca5f160650cb74d23fc11aa570dd61f86dcf647",
+                "reference": "fca5f160650cb74d23fc11aa570dd61f86dcf647",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.0",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^0.9",
+                "phpunit/phpunit": "^4.0",
+                "squizlabs/php_codesniffer": "^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\OAuth1\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ben Corlett",
+                    "email": "bencorlett@me.com",
+                    "homepage": "http://www.webcomm.com.au",
+                    "role": "Developer"
+                }
+            ],
+            "description": "OAuth 1.0 Client Library",
+            "keywords": [
+                "Authentication",
+                "SSO",
+                "authorization",
+                "bitbucket",
+                "identity",
+                "idp",
+                "oauth",
+                "oauth1",
+                "single sign on",
+                "trello",
+                "tumblr",
+                "twitter"
+            ],
+            "time": "2016-08-17T00:36:58+00:00"
+        },
+        {
             "name": "maatwebsite/excel",
             "version": "3.1.20",
             "source": {
@@ -1744,6 +1946,67 @@
                 "vector"
             ],
             "time": "2019-10-06T11:29:25+00:00"
+        },
+        {
+            "name": "maximebf/debugbar",
+            "version": "v1.16.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/maximebf/php-debugbar.git",
+                "reference": "1a1605b8e9bacb34cc0c6278206d699772e1d372"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/1a1605b8e9bacb34cc0c6278206d699772e1d372",
+                "reference": "1a1605b8e9bacb34cc0c6278206d699772e1d372",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1",
+                "psr/log": "^1.0",
+                "symfony/var-dumper": "^2.6|^3|^4|^5"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5"
+            },
+            "suggest": {
+                "kriswallsmith/assetic": "The best way to manage assets",
+                "monolog/monolog": "Log using Monolog",
+                "predis/predis": "Redis storage"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.16-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "DebugBar\\": "src/DebugBar/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maxime Bouroumeau-Fuseau",
+                    "email": "maxime.bouroumeau@gmail.com",
+                    "homepage": "http://maximebf.com"
+                },
+                {
+                    "name": "Barry vd. Heuvel",
+                    "email": "barryvdh@gmail.com"
+                }
+            ],
+            "description": "Debug bar in the browser for php application",
+            "homepage": "https://github.com/maximebf/php-debugbar",
+            "keywords": [
+                "debug",
+                "debugbar"
+            ],
+            "time": "2020-05-06T07:06:27+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -3074,6 +3337,48 @@
             }
         },
         {
+            "name": "shibuyakosuke/laravel-crud-breadcrumbs",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../../plugins/laravel-crud-breadcrumbs",
+                "reference": "ffa8f14f92681a16a860d084c7b698ec76f48fb5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "ShibuyaKosuke\\LaravelCrudBreadcrumbs\\Providers\\BreadcrumbsServiceProvider"
+                    ],
+                    "aliases": {
+                        "Breadcrumbs": "ShibuyaKosuke\\LaravelCrudBreadcrumbs\\Facades\\Breadcrumbs"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ShibuyaKosuke\\LaravelCrudBreadcrumbs\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "ShibuyaKosuke",
+                    "email": "shibuya@imagenious.co.jp"
+                }
+            ],
+            "description": "Breadcrumbs for Laravel project",
+            "keywords": [
+                "breadcrumbs",
+                "laravel"
+            ],
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
             "name": "shibuyakosuke/laravel-database-utilities",
             "version": "dev-master",
             "dist": {
@@ -3156,46 +3461,6 @@
                 }
             ],
             "description": "Validation rules generator",
-            "transport-options": {
-                "relative": true
-            }
-        },
-        {
-            "name": "shibuyakosuke/laravel-dompdf-font",
-            "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "../../plugins/laravel-dompdf-font",
-                "reference": "ae2fc4fc6c2d3c6fc3461aa181d6957bceafc3a6"
-            },
-            "require": {
-                "barryvdh/laravel-dompdf": "^0.8.6",
-                "ext-zip": "*",
-                "guzzlehttp/guzzle": "^6.5|^7.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "ShibuyaKosuke\\LaravelDompdfFont\\Providers\\ServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "ShibuyaKosuke\\LaravelDompdfFont\\": "src/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "KosukeShibuya",
-                    "email": "shibuya@imagenious.co.jp"
-                }
-            ],
-            "description": "install command for dompdf-font.",
             "transport-options": {
                 "relative": true
             }
@@ -3284,6 +3549,46 @@
                 }
             ],
             "description": "Setup model directory as you want.",
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "shibuyakosuke/laravel-pdf-font",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../../plugins/laravel-pdf-font",
+                "reference": "8200a4c874bb26b871738d924eae6638bcfd0a04"
+            },
+            "require": {
+                "barryvdh/laravel-dompdf": "^0.8.6",
+                "ext-zip": "*",
+                "guzzlehttp/guzzle": "^6.5|^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "ShibuyaKosuke\\LaravelDompdfFont\\Providers\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ShibuyaKosuke\\LaravelDompdfFont\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "KosukeShibuya",
+                    "email": "shibuya@imagenious.co.jp"
+                }
+            ],
+            "description": "install command for pdf-font.",
             "transport-options": {
                 "relative": true
             }
@@ -3509,6 +3814,77 @@
                 }
             ],
             "time": "2020-05-20T17:43:50+00:00"
+        },
+        {
+            "name": "symfony/debug",
+            "version": "v4.4.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/debug.git",
+                "reference": "47aa9064d75db36389692dd4d39895a0820f00f2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/47aa9064d75db36389692dd4d39895a0820f00f2",
+                "reference": "47aa9064d75db36389692dd4d39895a0820f00f2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.3",
+                "psr/log": "~1.0",
+                "symfony/polyfill-php80": "^1.15"
+            },
+            "conflict": {
+                "symfony/http-kernel": "<3.4"
+            },
+            "require-dev": {
+                "symfony/http-kernel": "^3.4|^4.0|^5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Debug\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Debug Component",
+            "homepage": "https://symfony.com",
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-07-23T08:31:43+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
@@ -7758,6 +8134,49 @@
             "time": "2016-10-03T07:35:21+00:00"
         },
         {
+            "name": "shibuyakosuke/laravel-dompdf-font",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ShibuyaKosuke/laravel-pdf-font.git",
+                "reference": "8200a4c874bb26b871738d924eae6638bcfd0a04"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ShibuyaKosuke/laravel-pdf-font/zipball/8200a4c874bb26b871738d924eae6638bcfd0a04",
+                "reference": "8200a4c874bb26b871738d924eae6638bcfd0a04",
+                "shasum": ""
+            },
+            "require": {
+                "barryvdh/laravel-dompdf": "^0.8.6",
+                "ext-zip": "*",
+                "guzzlehttp/guzzle": "^6.5|^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "ShibuyaKosuke\\LaravelDompdfFont\\Providers\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ShibuyaKosuke\\LaravelDompdfFont\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "KosukeShibuya",
+                    "email": "shibuya@imagenious.co.jp"
+                }
+            ],
+            "description": "install command for dompdf-font."
+        },
+        {
             "name": "shibuyakosuke/laravel-language-setting",
             "version": "1.1.0",
             "source": {
@@ -7899,8 +8318,9 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "shibuyakosuke/laravel-dompdf-font": 20,
-        "shibuyakosuke/laravel-make-command": 20
+        "shibuyakosuke/laravel-crud-breadcrumbs": 20,
+        "shibuyakosuke/laravel-make-command": 20,
+        "shibuyakosuke/laravel-pdf-font": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
