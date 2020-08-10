@@ -21,6 +21,10 @@ Route::get('/documentation', function () {
     return view('documentation');
 })->name('documentation');
 
+Route::get('/profile', function () {
+    return view('profile');
+})->name('profile');
+
 Route::get('/plugins', 'PluginController@index')->name('plugins.index');
 
 Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider');

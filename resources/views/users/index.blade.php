@@ -1,15 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container-fluid">
 
         @if (Session::has('success_message'))
             <div class="alert alert-success">
                 {{ session('success_message') }}
             </div>
         @endif
-
-        {{ Breadcrumbs::render() }}
 
         <div class="row mb-3">
             <div class="col">

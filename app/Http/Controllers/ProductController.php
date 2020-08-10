@@ -27,7 +27,7 @@ class ProductController extends Controller
     public function __construct(Request $request)
     {
         $this->request = $request;
-//        $this->authorizeResource(Product::class);
+        $this->authorizeResource(Product::class);
     }
 
     /**

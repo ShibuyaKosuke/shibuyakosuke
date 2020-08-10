@@ -2,9 +2,6 @@
 
 @section('content')
     <div class="container-fluid">
-
-        {{ Breadcrumbs::render() }}
-        
         {{ BootForm::open(['url' => route('users.store')]) }}
         <div class="card">
             <div class="card-header">

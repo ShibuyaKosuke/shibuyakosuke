@@ -9,8 +9,6 @@
             </div>
         @endif
 
-        {{ Breadcrumbs::render() }}
-
         <div class="mb-3">
             {{ Html::linkRoute('users.edit', __('buttons.edit'), compact('user'), ['class' => 'btn btn-outline-primary']) }}
             {{ Form::button(__('buttons.destroy'), ['type' => 'button', 'data-toggle' => 'modal', 'data-target' => '#model-deleting', 'class' => 'btn btn-outline-danger']) }}
