@@ -7,7 +7,7 @@
 - laravel-database-utilities
 - laravel-database-validation
 - laravel-language-setting
-- laravel-make-command
+- laravel-crud-command
 - laravel-model-replacement
 
 ### laravel-adminlte-command
@@ -24,7 +24,7 @@
 
 ### laravel-language-setting
 
-### laravel-make-command
+### laravel-crud-command
 
 ### laravel-model-replacement
 
