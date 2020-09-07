@@ -8,13 +8,17 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use ShibuyaKosuke\LaravelCrudCommand\Exports\Exportable;
+use ShibuyaKosuke\LaravelCrudCommand\Exports\Exporter;
 
 /**
  * Class ProductController
  * @package App\Http\Controllers
  */
-class ProductController extends Controller
+class ProductController extends Controller implements Exporter
 {
+    use Exportable;
+
     /**
      * @var Request
      */

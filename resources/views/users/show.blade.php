@@ -1,13 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container-fluid">
+    <div class="container">
 
         @if (Session::has('success_message'))
             <div class="alert alert-success">
                 {{ session('success_message') }}
             </div>
         @endif
+
+        {{ Breadcrumbs::render() }}
 
         <div class="mb-3">
             {{ Html::linkRoute('users.edit', __('buttons.edit'), compact('user'), ['class' => 'btn btn-outline-primary']) }}
@@ -20,27 +22,27 @@
             </div>
 
             <div class="card-body">
-                <dl class="dl-horizontal">
-                    <dt>{{ __('columns.users.id') }}</dt>
-                    <dd>{{ $user->id }}</dd>
-                    <dt>{{ __('columns.users.name') }}</dt>
-                    <dd>{{ $user->name }}</dd>
-                    <dt>{{ __('columns.users.github_account') }}</dt>
-                    <dd>{{ $user->github_account }}</dd>
-                    <dt>{{ __('columns.users.email') }}</dt>
-                    <dd>{{ $user->email }}</dd>
-                    <dt>{{ __('columns.users.email_verified_at') }}</dt>
-                    <dd>{{ $user->email_verified_at }}</dd>
-                    <dt>{{ __('columns.users.password') }}</dt>
-                    <dd>{{ $user->password }}</dd>
-                    <dt>{{ __('columns.users.remember_token') }}</dt>
-                    <dd>{{ $user->remember_token }}</dd>
-                    <dt>{{ __('columns.users.created_at') }}</dt>
-                    <dd>{{ $user->created_at }}</dd>
-                    <dt>{{ __('columns.users.updated_at') }}</dt>
-                    <dd>{{ $user->updated_at }}</dd>
-                    <dt>{{ __('columns.users.deleted_at') }}</dt>
-                    <dd>{{ $user->deleted_at }}</dd>
+                <dl>
+                    <dt >{{ __('columns.users.id') }}</dt>
+                    <dd >{{ $user->id }}</dd>
+                    <dt >{{ __('columns.users.name') }}</dt>
+                    <dd >{{ $user->name }}</dd>
+                    <dt >{{ __('columns.users.github_account') }}</dt>
+                    <dd >{{ $user->github_account }}</dd>
+                    <dt >{{ __('columns.users.email') }}</dt>
+                    <dd >{{ $user->email }}</dd>
+                    <dt >{{ __('columns.users.email_verified_at') }}</dt>
+                    <dd >{{ $user->email_verified_at }}</dd>
+                    <dt >{{ __('columns.users.password') }}</dt>
+                    <dd >{{ $user->password }}</dd>
+                    <dt >{{ __('columns.users.remember_token') }}</dt>
+                    <dd >{{ $user->remember_token }}</dd>
+                    <dt >{{ __('columns.users.created_at') }}</dt>
+                    <dd >{{ $user->created_at }}</dd>
+                    <dt >{{ __('columns.users.updated_at') }}</dt>
+                    <dd >{{ $user->updated_at }}</dd>
+                    <dt >{{ __('columns.users.deleted_at') }}</dt>
+                    <dd >{{ $user->deleted_at }}</dd>
                 </dl>
             </div>
 

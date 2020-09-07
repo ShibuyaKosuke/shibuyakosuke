@@ -12,31 +12,29 @@
         {{ Breadcrumbs::render() }}
 
         <div class="mb-3">
-            {{ Html::linkRoute('products.edit', __('buttons.edit'), compact('product'), ['class' => 'btn btn-outline-primary']) }}
+            {{ Html::linkRoute('linked_social_accounts.edit', __('buttons.edit'), compact('linked_social_account'), ['class' => 'btn btn-outline-primary']) }}
             {{ Form::button(__('buttons.destroy'), ['type' => 'button', 'data-toggle' => 'modal', 'data-target' => '#model-deleting', 'class' => 'btn btn-outline-danger']) }}
         </div>
 
         <div class="card">
             <div class="card-header">
-                {{ __('pages.show', ['table' => __('tables.products')]) }}
+                {{ __('pages.show', ['table' => __('tables.linked_social_accounts')]) }}
             </div>
 
             <div class="card-body">
                 <dl>
-                    <dt >{{ __('columns.products.id') }}</dt>
-                    <dd >{{ $product->id }}</dd>
                     <dt >{{ __('columns.users.name') }}</dt>
-                    <dd >{{ $product->author->name }}</dd>
-                    <dt >{{ __('columns.products.name') }}</dt>
-                    <dd >{{ $product->name }}</dd>
-                    <dt >{{ __('columns.products.repository_url') }}</dt>
-                    <dd >{{ $product->repository_url }}</dd>
-                    <dt >{{ __('columns.products.created_at') }}</dt>
-                    <dd >{{ $product->created_at }}</dd>
-                    <dt >{{ __('columns.products.updated_at') }}</dt>
-                    <dd >{{ $product->updated_at }}</dd>
-                    <dt >{{ __('columns.products.deleted_at') }}</dt>
-                    <dd >{{ $product->deleted_at }}</dd>
+                    <dd >{{ $linked_social_account->id->name }}</dd>
+                    <dt >{{ __('columns.linked_social_accounts.user_id') }}</dt>
+                    <dd >{{ $linked_social_account->user_id }}</dd>
+                    <dt >{{ __('columns.linked_social_accounts.provider_name') }}</dt>
+                    <dd >{{ $linked_social_account->provider_name }}</dd>
+                    <dt >{{ __('columns.linked_social_accounts.provider_id') }}</dt>
+                    <dd >{{ $linked_social_account->provider_id }}</dd>
+                    <dt >{{ __('columns.linked_social_accounts.created_at') }}</dt>
+                    <dd >{{ $linked_social_account->created_at }}</dd>
+                    <dt >{{ __('columns.linked_social_accounts.updated_at') }}</dt>
+                    <dd >{{ $linked_social_account->updated_at }}</dd>
                 </dl>
             </div>
 

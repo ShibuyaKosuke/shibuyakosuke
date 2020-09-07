@@ -1,7 +1,7 @@
 {
-    "name": "laravel/laravel",
+    "name": "shibuyakosuke/shibuyakosuke",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "www.shibuyakosuke.com",
     "keywords": [
         "framework",
         "laravel"
@@ -11,46 +11,6 @@
         {
             "type": "path",
             "url": "../../plugins/laravel-adminlte-command",
-            "symlink": true
-        },
-        {
-            "type": "path",
-            "url": "../../plugins/laravel-make-command",
-            "symlink": true
-        },
-        {
-            "type": "path",
-            "url": "../../plugins/laravel-bootstrap4",
-            "symlink": true
-        },
-        {
-            "type": "path",
-            "url": "../../plugins/laravel-database-validation",
-            "symlink": true
-        },
-        {
-            "type": "path",
-            "url": "../../plugins/laravel-database-utilities",
-            "symlink": true
-        },
-        {
-            "type": "path",
-            "url": "../../plugins/laravel-database-spreadsheet",
-            "symlink": true
-        },
-        {
-            "type": "path",
-            "url": "../../plugins/laravel-model-replacement",
-            "symlink": true
-        },
-        {
-            "type": "path",
-            "url": "../../plugins/laravel-crud-breadcrumbs",
-            "symlink": true
-        },
-        {
-            "type": "path",
-            "url": "../../plugins/laravel-pdf-font",
             "symlink": true
         }
     ],
@@ -64,9 +24,7 @@
         "laravel/socialite": "^4.4",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.1",
-        "shibuyakosuke/laravel-crud-breadcrumbs": "dev-master",
-        "shibuyakosuke/laravel-make-command": "dev-master",
-        "shibuyakosuke/laravel-pdf-font": "dev-master"
+        "shibuyakosuke/laravel-crud-command": "^1.0"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

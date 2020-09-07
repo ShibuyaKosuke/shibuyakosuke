@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Scopes\UserScope;
 use Carbon\Traits\Timestamp;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -12,7 +13,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
-use function request;
+use ShibuyaKosuke\LaravelCrudCommand\Traits\AuthorObservable;
+use Watson\Rememberable\Rememberable;
 
 /**
  * User ユーザー
@@ -28,7 +30,7 @@ use function request;
  * @property Carbon deleted_at 削除日時
  * @property LinkedSocialAccount[] linked_social_accounts ソーシャルログイン
  * @property Product[] products プロダクト
- * @method search
+ * @method Builder search(Request $request)
  */
 class User extends Authenticatable
 {
@@ -36,6 +38,8 @@ class User extends Authenticatable
     use Notifiable;
     use Timestamp;
     use SoftDeletes;
+    
+    use Rememberable;
 
     protected $perPage = 15;
 
@@ -53,25 +57,34 @@ class User extends Authenticatable
     ];
 
     /**
+     * Add global Scopes
+     */
+    protected static function booted()
+    {
+        parent::boot();
+        static::addGlobalScope(new UserScope);
+    }
+
+    /**
      * @param Builder $query
      * @param Request $request
      * @return Builder
      */
     public function scopeSearch($query, Request $request)
     {
-        return $query->when($request->has('name'), function (Builder $query) use ($request) {
+        return $query->when($request->get('name'), function (Builder $query) use ($request) {
             $query->where('name', 'like', '%' . $request->get('name') . '%');
-        })->when($request->has('github_account'), function (Builder $query) use ($request) {
+        })->when($request->get('github_account'), function (Builder $query) use ($request) {
             $query->where('github_account', 'like', '%' . $request->get('github_account') . '%');
-        })->when($request->has('email'), function (Builder $query) use ($request) {
+        })->when($request->get('email'), function (Builder $query) use ($request) {
             $query->where('email', 'like', '%' . $request->get('email') . '%');
-        })->when($request->has('email_verified_at'), function (Builder $query) use ($request) {
+        })->when($request->get('email_verified_at'), function (Builder $query) use ($request) {
             $query->whereDate('email_verified_at', $request->get('email_verified_at'));
-        })->when($request->has('password'), function (Builder $query) use ($request) {
+        })->when($request->get('password'), function (Builder $query) use ($request) {
             $query->where('password', 'like', '%' . $request->get('password') . '%');
-        })->when($request->has('remember_token'), function (Builder $query) use ($request) {
+        })->when($request->get('remember_token'), function (Builder $query) use ($request) {
             $query->where('remember_token', 'like', '%' . $request->get('remember_token') . '%');
-        })->when($request->has('sort') && $request->has('order'), function (Builder $query) use ($request) {
+        })->when($request->get('sort') && $request->has('order'), function (Builder $query) use ($request) {
             $query->orderBy($request->get('sort'), $request->get('order'))
                 ->when($request->get('sort') !== $this->primaryKey, function (Builder $query) {
                     $query->orderBy($this->primaryKey, 'asc');

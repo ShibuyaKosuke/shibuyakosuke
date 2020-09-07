@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Scopes\ProductScope;
 use Carbon\Traits\Timestamp;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -11,7 +12,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
-use function request;
+use ShibuyaKosuke\LaravelCrudCommand\Traits\AuthorObservable;
+use Watson\Rememberable\Rememberable;
 
 /**
  * Product プロダクト
@@ -23,13 +25,15 @@ use function request;
  * @property Carbon updated_at 作成日時
  * @property Carbon deleted_at 削除日時
  * @property User author ユーザー
- * @method search
+ * @method Builder search(Request $request)
  */
 class Product extends Model
 {
 
     use Timestamp;
     use SoftDeletes;
+    
+    use Rememberable;
 
     protected $perPage = 15;
 
@@ -40,19 +44,28 @@ class Product extends Model
     ];
 
     /**
+     * Add global Scopes
+     */
+    protected static function booted()
+    {
+        parent::boot();
+        static::addGlobalScope(new ProductScope);
+    }
+
+    /**
      * @param Builder $query
      * @param Request $request
      * @return Builder
      */
     public function scopeSearch($query, Request $request)
     {
-        return $query->when($request->has('author_id'), function (Builder $query) use ($request) {
+        return $query->when($request->get('author_id'), function (Builder $query) use ($request) {
             $query->where('author_id', '=', $request->get('author_id'));
-        })->when($request->has('name'), function (Builder $query) use ($request) {
+        })->when($request->get('name'), function (Builder $query) use ($request) {
             $query->where('name', 'like', '%' . $request->get('name') . '%');
-        })->when($request->has('repository_url'), function (Builder $query) use ($request) {
+        })->when($request->get('repository_url'), function (Builder $query) use ($request) {
             $query->where('repository_url', 'like', '%' . $request->get('repository_url') . '%');
-        })->when($request->has('sort') && $request->has('order'), function (Builder $query) use ($request) {
+        })->when($request->get('sort') && $request->has('order'), function (Builder $query) use ($request) {
             $query->orderBy($request->get('sort'), $request->get('order'))
                 ->when($request->get('sort') !== $this->primaryKey, function (Builder $query) {
                     $query->orderBy($this->primaryKey, 'asc');
