@@ -32,11 +32,12 @@ Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCall
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::resource('users', 'UserController');
-Route::resource('products', 'ProductController');
-Route::get('users/export/{fileType}', 'UserController@export')->name('users.export');
-Route::get('products/export/{fileType}', 'ProductController@export')->name('products.export');
-Route::resource('linked_social_accounts', 'LinkedSocialAccountController');
-Route::get('linked_social_accounts/export/{fileType}', 'LinkedSocialAccountController@export')->name('linked_social_accounts.export');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::resource('users', 'UserController');
+    Route::resource('products', 'ProductController');
+    Route::resource('linked_social_accounts', 'LinkedSocialAccountController');
+    Route::get('users/export/{fileType}', 'UserController@export')->name('users.export');
+    Route::get('products/export/{fileType}', 'ProductController@export')->name('products.export');
+    Route::get('linked_social_accounts/export/{fileType}', 'LinkedSocialAccountController@export')->name('linked_social_accounts.export');
+});

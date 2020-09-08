@@ -23,22 +23,22 @@ use Watson\Rememberable\Rememberable;
  * @property string provider_id プロバイダーID
  * @property Carbon created_at 作成日時
  * @property Carbon updated_at 更新日時
- * @property User id ユーザー
+ * @property User user ユーザー
  * @method Builder search(Request $request)
  */
 class LinkedSocialAccount extends Model
 {
 
     use Timestamp;
-    
-    
+
+
     use Rememberable;
 
     protected $perPage = 15;
 
     protected $fillable = [
-        'user_id', 
-        'provider_name', 
+        'user_id',
+        'provider_name',
         'provider_id'
     ];
 
@@ -73,19 +73,11 @@ class LinkedSocialAccount extends Model
     }
 
     /**
-     * @return string|null
-     */
-    public function getNameAttribute()
-    {
-        return $this->title;
-    }
-
-    /**
      * ユーザー
      * @return BelongsTo
      */
-    public function id(): BelongsTo
+    public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'id');
+        return $this->belongsTo(User::class);
     }
 }
