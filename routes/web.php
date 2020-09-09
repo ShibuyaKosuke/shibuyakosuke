@@ -21,6 +21,10 @@ Route::get('/documentation', function () {
     return view('documentation');
 })->name('documentation');
 
+Route::get('/tutorial', function () {
+    return view('tutorial');
+})->name('tutorial');
+
 Route::get('/profile', function () {
     return view('profile');
 })->name('profile');

@@ -17,6 +17,15 @@
             </div>
         </div>
 
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <pre class="bg-dark text-white p-3">php artisan make:crud users --sortable --with-export --with-filter</pre>
+            </div>
+            <div class="col-md-6">
+
+            </div>
+        </div>
+
         <div class="row justify-content-center mb-4">
             <div class="col-md-12">
                 <div class="card">
@@ -109,7 +118,7 @@
 
                     </div>
                     <div class="card-footer text-center">
-                        <a href="" class="fa fa-chevron-right">
+                        <a href="{{ route('documentation') }}" class="fa fa-chevron-right">
                             read documentation
                         </a>
                     </div>
@@ -124,7 +133,7 @@
 
                     </div>
                     <div class="card-footer text-center">
-                        <a href="" class="fa fa-chevron-right">
+                        <a href="{{ route('tutorial') }}" class="fa fa-chevron-right">
                             Go tutorial
                         </a>
                     </div>
