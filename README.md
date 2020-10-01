@@ -7,3 +7,4 @@
 - [laravel-language-setting](https://github.com/ShibuyaKosuke/laravel-language-setting)
 - [laravel-crud-command](https://github.com/ShibuyaKosuke/laravel-crud-command)
 - [laravel-model-replacement](https://github.com/ShibuyaKosuke/laravel-model-replacement)
+- [laravel-form-extend](https://github.com/ShibuyaKosuke/laravel-form-extend)
